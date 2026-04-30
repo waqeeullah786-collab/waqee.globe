@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — waqee.glob.tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--c1:#FF3BFF;--c2:#ECFB05;--c3:#00F0FF;--c4:#FF6B2B;--c5:#3BFF8A;--dark:#080810;--dark2:#0E0E1A;--dark3:#14141F;--white:#F5F5FF;--muted:rgba(245,245,255,0.5);--muted2:rgba(245,245,255,0.28);--font:'Cabinet Grotesk',sans-serif;--font-d:'Syne',sans-serif;--font-mono:'Space Mono',monospace;}
+body{background:var(--dark);color:var(--white);font-family:var(--font);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none;}
+.cursor{position:fixed;width:12px;height:12px;border-radius:50%;background:var(--c1);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s;mix-blend-mode:difference;}
+.cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(255,59,255,0.5);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.12s ease;mix-blend-mode:difference;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:128px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:70px;background:rgba(8,8,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-logo{font-family:var(--font-d);font-size:20px;font-weight:800;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px;}
+.logo-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--c1),var(--c3));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#000;font-family:var(--font-d);}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{font-size:12.5px;font-weight:500;color:var(--muted);text-decoration:none;padding:7px 16px;border-radius:8px;transition:all 0.15s;font-family:var(--font-mono);}
+.nav-link:hover,.nav-link.active{color:var(--white);background:rgba(255,255,255,0.07);}
+.nav-link.active{color:var(--c2);}
+.nav-cta{font-size:13px;font-weight:700;color:#000;background:var(--c2);border:none;padding:9px 22px;border-radius:8px;cursor:none;font-family:var(--font-d);transition:all 0.18s;text-decoration:none;}
+.nav-cta:hover{background:var(--c1);color:#fff;transform:translateY(-1px);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.page-hero{padding:140px 48px 80px;position:relative;overflow:hidden;max-width:1100px;margin:0 auto;}
+.blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:0.12;pointer-events:none;z-index:0;}
+.section-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--c1);margin-bottom:16px;display:flex;align-items:center;gap:10px;position:relative;z-index:1;}
+.section-label::before{content:'';width:24px;height:2px;background:var(--c1);}
+.page-title{font-family:var(--font-d);font-size:clamp(44px,6vw,76px);font-weight:800;line-height:1;letter-spacing:-0.03em;margin-bottom:20px;animation:fadeUp 0.6s ease both;position:relative;z-index:1;}
+.page-sub{font-size:17px;color:var(--muted);line-height:1.75;max-width:540px;animation:fadeUp 0.6s 0.1s ease both;position:relative;z-index:1;}
+
+.content{max-width:1100px;margin:0 auto;padding:0 48px 100px;position:relative;z-index:1;}
+
+/* SERVICES */
+.services-list{display:flex;flex-direction:column;gap:2px;margin-bottom:80px;}
+.service-item{background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:32px 36px;display:grid;grid-template-columns:60px 1fr auto;gap:28px;align-items:center;transition:all 0.22s;cursor:none;}
+.service-item:hover{border-color:rgba(255,255,255,0.14);transform:translateX(6px);}
+.service-num{font-family:var(--font-mono);font-size:13px;color:var(--muted2);}
+.service-body{}
+.service-name{font-family:var(--font-d);font-size:22px;font-weight:800;color:var(--white);margin-bottom:8px;}
+.service-desc{font-size:14px;color:var(--muted);line-height:1.7;}
+.service-tags{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+.stag{font-family:var(--font-mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);color:var(--muted2);}
+.service-price{text-align:right;min-width:140px;}
+.price-label{font-family:var(--font-mono);font-size:10px;color:var(--muted2);letter-spacing:0.06em;margin-bottom:4px;}
+.price-val{font-family:var(--font-d);font-size:20px;font-weight:800;color:var(--white);}
+.service-arrow{font-size:22px;color:var(--muted2);transition:color 0.15s,transform 0.15s;}
+.service-item:hover .service-arrow{color:var(--c2);transform:translateX(4px);}
+
+/* PROCESS */
+.process-section{margin-bottom:80px;}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
+.process-step{background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;position:relative;}
+.process-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--muted2);font-size:18px;z-index:2;}
+.process-step:last-child::after{display:none;}
+.step-num{font-family:var(--font-d);font-size:40px;font-weight:800;color:var(--c2);opacity:0.3;margin-bottom:12px;line-height:1;}
+.step-title{font-family:var(--font-d);font-size:16px;font-weight:800;color:var(--white);margin-bottom:8px;}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* CTA */
+.cta-strip{background:var(--dark2);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;position:relative;overflow:hidden;}
+.cta-strip::before{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,59,255,0.12),transparent 70%);}
+.cta-strip-title{font-family:var(--font-d);font-size:28px;font-weight:800;color:var(--white);margin-bottom:8px;position:relative;z-index:1;}
+.cta-strip-sub{font-size:15px;color:var(--muted);position:relative;z-index:1;}
+.btn-primary{font-size:15px;font-weight:700;color:#000;background:var(--c2);border:none;padding:14px 32px;border-radius:10px;cursor:none;font-family:var(--font-d);transition:all 0.18s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;position:relative;z-index:1;}
+.btn-primary:hover{background:var(--c1);color:#fff;transform:translateY(-2px);}
+
+footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,0.06);position:relative;z-index:1;}
+.footer-inner{max-width:1200px;margin:0 auto;padding:52px 48px 0;}
+.footer-top{display:grid;grid-template-columns:1.5fr 2fr;gap:80px;margin-bottom:40px;}
+.footer-logo-wrap{font-family:var(--font-d);font-size:22px;font-weight:800;color:var(--white);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.footer-tagline{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px;}
+.footer-links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.footer-col{display:flex;flex-direction:column;gap:10px;}
+.footer-col-title{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--white);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--muted);text-decoration:none;transition:color 0.15s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0 24px;display:flex;align-items:center;justify-content:space-between;}
+.footer-copy{font-family:var(--font-mono);font-size:12px;color:var(--muted2);}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-family:var(--font-mono);font-size:12px;color:var(--muted2);text-decoration:none;transition:color 0.15s;}
+.footer-legal a:hover{color:var(--white);}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .page-hero,.content{padding-left:24px;padding-right:24px;}
+  .service-item{grid-template-columns:1fr;gap:12px;}
+  .service-price{text-align:left;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .process-step::after{display:none;}
+  .cta-strip{flex-direction:column;align-items:flex-start;}
+  .footer-top{grid-template-columns:1fr;}
+  .footer-links-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-inner{padding:40px 24px 0;}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo"><div class="logo-icon">W</div>waqee.glob.tech</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link active">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Let's Build →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="blob" style="width:500px;height:500px;background:var(--c3);top:-200px;right:-100px;"></div>
+  <div class="section-label">Services</div>
+  <h1 class="page-title">Everything you need.<br><span style="color:var(--c2);">Nothing you don't.</span></h1>
+  <p class="page-sub">From single automations to full SaaS products — we scope, build, and ship with speed and precision.</p>
+</div>
+
+<div class="content">
+
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <div class="service-body">
+        <div class="service-name">n8n Workflow Automation</div>
+        <div class="service-desc">We design and build custom n8n workflows that automate your most time-consuming processes. From simple triggers to complex multi-step pipelines with AI decision-making built in.</div>
+        <div class="service-tags"><span class="stag">n8n</span><span class="stag">AI Agents</span><span class="stag">API Calls</span><span class="stag">Data Pipelines</span></div>
+      </div>
+      <div class="service-price"><div class="price-label">STARTING FROM</div><div class="price-val">$299</div></div>
+      <div class="service-arrow">→</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <div class="service-body">
+        <div class="service-name">SaaS Product Development</div>
+        <div class="service-desc">End-to-end SaaS development from architecture to deployment. We handle the full stack — frontend, backend, database, auth, payments, and launch.</div>
+        <div class="service-tags"><span class="stag">React</span><span class="stag">Node.js</span><span class="stag">Supabase</span><span class="stag">Stripe</span><span class="stag">Vercel</span></div>
+      </div>
+      <div class="service-price"><div class="price-label">STARTING FROM</div><div class="price-val">$1,499</div></div>
+      <div class="service-arrow">→</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div class="service-body">
+        <div class="service-name">AI Agent Development</div>
+        <div class="service-desc">Custom AI agents powered by Claude, GPT-4, or any model of your choice. We build agents that think, decide, and act — integrated directly into your workflow.</div>
+        <div class="service-tags"><span class="stag">Claude</span><span class="stag">GPT-4</span><span class="stag">Custom Models</span><span class="stag">RAG</span></div>
+      </div>
+      <div class="service-price"><div class="price-label">STARTING FROM</div><div class="price-val">$499</div></div>
+      <div class="service-arrow">→</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">04</div>
+      <div class="service-body">
+        <div class="service-name">E-commerce Automation Tools</div>
+        <div class="service-desc">Custom tools for Amazon FBA, Walmart WFS, and dropshipping. Product research automation, listing tools, repricing bots, and inventory management systems.</div>
+        <div class="service-tags"><span class="stag">Amazon</span><span class="stag">Walmart</span><span class="stag">Dropshipping</span><span class="stag">Scraping</span></div>
+      </div>
+      <div class="service-price"><div class="price-label">STARTING FROM</div><div class="price-val">$399</div></div>
+      <div class="service-arrow">→</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">05</div>
+      <div class="service-body">
+        <div class="service-name">API Integration & Development</div>
+        <div class="service-desc">Connect your tools, systems, and data sources. We build robust REST APIs, webhooks, and integration bridges between any platforms in your stack.</div>
+        <div class="service-tags"><span class="stag">REST API</span><span class="stag">Webhooks</span><span class="stag">OAuth</span><span class="stag">Zapier Alt</span></div>
+      </div>
+      <div class="service-price"><div class="price-label">STARTING FROM</div><div class="price-val">$249</div></div>
+      <div class="service-arrow">→</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">06</div>
+      <div class="service-body">
+        <div class="service-name">Custom Analytics Dashboards</div>
+        <div class="service-desc">Real-time dashboards built on your data. Track KPIs, monitor automations, visualize sales data, and make confident decisions with live insights.</div>
+        <div class="service-tags"><span class="stag">Charts</span><span class="stag">Real-time</span><span class="stag">Custom UI</span><span class="stag">Data Viz</span></div>
+      </div>
+      <div class="service-price"><div class="price-label">STARTING FROM</div><div class="price-val">$699</div></div>
+      <div class="service-arrow">→</div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="process-section">
+    <div class="section-label">How We Work</div>
+    <h2 style="font-family:var(--font-d);font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-0.02em;margin-bottom:40px;">Our process.</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Discovery Call</div>
+        <div class="step-desc">We understand your problem, goals, and constraints — no sales pitch, just listening.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Scope & Quote</div>
+        <div class="step-desc">Clear deliverables, timeline, and pricing. No surprises, no scope creep.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Build & Test</div>
+        <div class="step-desc">We build fast and test thoroughly — with weekly updates and full transparency.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Deploy & Support</div>
+        <div class="step-desc">We launch your project and support it for 30 days post-delivery, guaranteed.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <div>
+      <div class="cta-strip-title">Ready to start your project?</div>
+      <div class="cta-strip-sub">Tell us what you need — we'll respond within 24 hours.</div>
+    </div>
+    <a href="contact.html" class="btn-primary">Get a Free Quote →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-wrap"><div class="logo-icon">W</div>waqee.glob.tech</div>
+        <p class="footer-tagline">Software, SaaS & AI automation company.<br>Building the tools that run modern businesses.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col"><div class="footer-col-title">Products</div><a href="portfolio.html">SWAZ</a><a href="services.html">AI Agents</a><a href="services.html">SaaS Builder</a></div>
+        <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></div>
+        <div class="footer-col"><div class="footer-col-title">Legal</div><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a><a href="terms.html">Terms</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 waqee.glob.tech. All rights reserved.</div>
+      <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}
+animRing();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';ring.style.width='52px';ring.style.height='52px';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';ring.style.width='36px';ring.style.height='36px';});
+});
+const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.style.opacity='1';i.target.style.transform='translateY(0)';}});},{threshold:0.1});
+document.querySelectorAll('.service-item,.process-step').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.4s ease,transform 0.4s ease';obs.observe(el);});
+</script>
+</body>
+</html>
