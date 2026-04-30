@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — SWAZ</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --accent:#2563EB;--green:#16A34A;
+  --bg-hero:#F0F5FD;
+  --dark:#0F1724;--muted:#6B7A99;--muted2:#A0AABF;
+  --shadow-sm:0 2px 8px rgba(37,99,235,0.08);
+  --shadow-md:0 4px 20px rgba(37,99,235,0.11);
+  --font:'DM Sans',sans-serif;--font-d:'Manrope',sans-serif;
+}
+body{background:var(--bg-hero);color:var(--dark);font-family:var(--font);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(37,99,235,0.07) 1px,transparent 1px);background-size:32px 32px;opacity:0.6;mask-image:radial-gradient(ellipse 100% 60% at 50% 0%,black,transparent);}
+
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:66px;background:rgba(255,255,255,0.94);backdrop-filter:blur(24px);border-bottom:1px solid rgba(200,215,240,0.6);box-shadow:0 1px 0 rgba(37,99,235,0.05);}
+.nav-logo{font-family:var(--font-d);font-size:21px;font-weight:900;letter-spacing:-0.04em;color:var(--dark);display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nav-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,0.18);animation:dotPulse 2s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 3px rgba(37,99,235,0.18)}50%{box-shadow:0 0 0 5px rgba(37,99,235,0.08)}}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-live{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#16A34A;background:rgba(22,163,74,0.08);border:1px solid rgba(22,163,74,0.2);padding:6px 14px;border-radius:20px;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#16A34A;animation:blink 1.4s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.nav-back{font-size:13.5px;font-weight:500;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:9px;border:1px solid rgba(200,218,245,0.8);background:#fff;transition:all 0.15s;}
+.nav-back:hover{color:var(--dark);border-color:rgba(37,99,235,0.3);}
+.btn-cta{font-size:14px;font-weight:700;color:#fff;background:var(--accent);border:none;padding:9px 22px;border-radius:9px;cursor:pointer;font-family:var(--font);transition:all 0.18s;text-decoration:none;display:inline-flex;align-items:center;gap:7px;box-shadow:0 2px 12px rgba(37,99,235,0.28);}
+.btn-cta:hover{background:#1d4ed8;transform:translateY(-1px);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.page{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:64px 24px 100px;}
+
+.policy-header{margin-bottom:48px;animation:fadeUp 0.5s ease both;}
+.policy-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.18);color:var(--accent);font-size:12.5px;font-weight:600;padding:6px 16px;border-radius:20px;margin-bottom:22px;}
+.policy-title{font-family:var(--font-d);font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1.05;letter-spacing:-0.03em;color:var(--dark);margin-bottom:16px;}
+.policy-title .blue{color:var(--accent);}
+.policy-meta{font-size:13px;color:var(--muted2);display:flex;align-items:center;gap:8px;}
+.policy-meta::before{content:'';width:20px;height:1px;background:rgba(160,170,191,0.5);}
+
+/* TOC */
+.toc{background:rgba(255,255,255,0.8);border:1px solid rgba(200,218,245,0.7);border-radius:16px;padding:22px 26px;margin-bottom:28px;backdrop-filter:blur(12px);box-shadow:var(--shadow-sm);animation:fadeUp 0.5s 0.1s ease both;}
+.toc-title{font-family:var(--font-d);font-size:13px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+.toc-grid a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.15s;padding:4px 0;}
+.toc-grid a::before{content:'';width:5px;height:5px;border-radius:50%;background:rgba(37,99,235,0.25);flex-shrink:0;transition:background 0.15s;}
+.toc-grid a:hover{color:var(--accent);}
+.toc-grid a:hover::before{background:var(--accent);}
+
+.policy-body{display:flex;flex-direction:column;gap:16px;animation:fadeUp 0.5s 0.15s ease both;}
+.policy-section{background:rgba(255,255,255,0.82);border:1px solid rgba(200,218,245,0.7);border-radius:16px;padding:28px 30px;backdrop-filter:blur(12px);box-shadow:var(--shadow-sm);transition:box-shadow 0.18s;}
+.policy-section:hover{box-shadow:var(--shadow-md);}
+.policy-section h2{font-family:var(--font-d);font-size:16px;font-weight:800;color:var(--dark);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:-0.01em;}
+.policy-section h2 .sec-num{width:26px;height:26px;border-radius:8px;background:rgba(37,99,235,0.1);color:var(--accent);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.policy-section p{font-size:14.5px;color:var(--muted);line-height:1.8;margin-bottom:12px;}
+.policy-section p:last-child{margin-bottom:0;}
+.policy-section ul{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:9px;}
+.policy-section ul li{font-size:14px;color:var(--muted);line-height:1.7;padding-left:20px;position:relative;}
+.policy-section ul li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:rgba(37,99,235,0.35);}
+.policy-section a{color:var(--accent);text-decoration:none;font-weight:600;}
+.policy-section a:hover{text-decoration:underline;}
+.policy-section strong{color:var(--dark);font-weight:700;}
+
+/* INFO BOX */
+.info-box{background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.16);border-radius:12px;padding:18px 22px;display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;}
+.info-box-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.info-box p{font-size:14px;color:var(--dark);line-height:1.7;margin:0;font-weight:500;}
+
+.contact-box{background:linear-gradient(135deg,rgba(37,99,235,0.06),rgba(37,99,235,0.02));border:1px solid rgba(37,99,235,0.2);border-radius:16px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.contact-box p{font-size:14.5px;color:var(--muted);}
+.contact-box a{font-size:13.5px;font-weight:700;color:var(--accent);text-decoration:none;background:#fff;border:1.5px solid rgba(37,99,235,0.25);padding:10px 22px;border-radius:9px;transition:all 0.18s;display:inline-flex;align-items:center;gap:6px;box-shadow:var(--shadow-sm);}
+.contact-box a:hover{border-color:var(--accent);box-shadow:var(--shadow-md);transform:translateY(-1px);}
+
+footer{position:relative;z-index:1;background:rgba(255,255,255,0.8);border-top:1px solid rgba(200,218,245,0.6);backdrop-filter:blur(16px);}
+.footer-inner{max-width:1100px;margin:0 auto;padding:52px 48px 0;}
+.footer-top{display:grid;grid-template-columns:1.4fr 2fr;gap:60px;margin-bottom:40px;}
+.footer-logo{font-family:var(--font-d);font-size:28px;font-weight:900;color:var(--dark);letter-spacing:-0.04em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.footer-tagline{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:18px;}
+.footer-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(22,163,74,0.08);border:1px solid rgba(22,163,74,0.2);border-radius:20px;padding:6px 14px;font-size:12px;color:var(--green);font-weight:600;}
+.footer-badge-dot{width:6px;height:6px;border-radius:50%;background:#16A34A;animation:blink 1.4s infinite;}
+.footer-links-group{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.footer-col{display:flex;flex-direction:column;gap:10px;}
+.footer-col-title{font-size:11px;font-weight:700;color:var(--dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
+.footer-col a{font-size:13.5px;color:var(--muted);text-decoration:none;transition:color 0.15s;}
+.footer-col a:hover{color:var(--dark);}
+.footer-bottom{border-top:1px solid rgba(200,218,245,0.6);padding:20px 0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:12.5px;color:var(--muted2);}
+.footer-bottom-links{display:flex;gap:20px;}
+.footer-bottom-links a{font-size:12.5px;color:var(--muted2);text-decoration:none;transition:color 0.15s;}
+.footer-bottom-links a:hover{color:var(--dark);}
+
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .page{padding:40px 16px 80px;}
+  .policy-title{font-size:38px;}
+  .policy-section{padding:20px 18px;}
+  .contact-box{flex-direction:column;align-items:flex-start;}
+  .toc-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;gap:32px;}
+  .footer-links-group{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .footer-inner{padding:40px 16px 0;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="khan87.html" class="nav-logo"><div class="nav-dot"></div>SWAZ</a>
+  <div class="nav-right">
+    <div class="nav-live"><div class="live-dot"></div>n8n Live</div>
+    <a href="khan87.html" class="nav-back">← Back to App</a>
+    <a href="khan87.html" class="btn-cta">Get started →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="policy-header">
+    <div class="policy-eyebrow">📋 Legal · Terms</div>
+    <h1 class="policy-title">Terms of<br><span class="blue">Service</span></h1>
+    <div class="policy-meta">Last updated: January 1, 2025 · waqeeglobe.info</div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <div class="toc-grid">
+      <a href="#acceptance">Acceptance of Terms</a>
+      <a href="#description">Description of Service</a>
+      <a href="#account">Account Registration</a>
+      <a href="#use">Acceptable Use</a>
+      <a href="#billing">Subscription & Billing</a>
+      <a href="#payment">Payment — Lemon Squeezy</a>
+      <a href="#selfservice">Self-Service Platform</a>
+      <a href="#ip">Intellectual Property</a>
+      <a href="#disclaimer">Disclaimer of Warranties</a>
+      <a href="#liability">Limitation of Liability</a>
+      <a href="#termination">Termination</a>
+      <a href="#law">Governing Law</a>
+    </div>
+  </div>
+
+  <div class="policy-body">
+
+    <div class="policy-section" id="acceptance">
+      <h2><span class="sec-num">1</span>Acceptance of Terms</h2>
+      <p>By accessing or using Swaz ("the Service"), operated by waqeeglobe.info (Waqee), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.</p>
+      <p>We reserve the right to update these terms at any time. Continued use of the Service after changes constitutes acceptance of the revised terms.</p>
+    </div>
+
+    <div class="policy-section" id="description">
+      <h2><span class="sec-num">2</span>Description of Service</h2>
+      <p>Swaz is an Amazon niche research platform powered by AI automation. It provides product discovery, competition analysis, trend forecasting, revenue estimation, and related tools to help Amazon sellers identify market opportunities.</p>
+      <p>The Service is provided on a subscription basis and requires an active account to access premium features.</p>
+    </div>
+
+    <div class="policy-section" id="account">
+      <h2><span class="sec-num">3</span>Account Registration</h2>
+      <ul>
+        <li>You must provide accurate and complete information when creating an account</li>
+        <li>You are responsible for maintaining the security of your account credentials</li>
+        <li>You must be at least 18 years old to create an account</li>
+        <li>One person or legal entity may not maintain more than one free account</li>
+        <li>You are responsible for all activity that occurs under your account</li>
+      </ul>
+    </div>
+
+    <div class="policy-section" id="use">
+      <h2><span class="sec-num">4</span>Acceptable Use</h2>
+      <p>You agree to use Swaz only for lawful purposes. You must not:</p>
+      <ul>
+        <li>Use the Service to violate Amazon's Terms of Service or any applicable law</li>
+        <li>Scrape, bulk export, or systematically harvest data beyond normal usage</li>
+        <li>Resell, sublicense, or redistribute access to the Service without written permission</li>
+        <li>Attempt to reverse-engineer, decompile, or access our underlying systems or data sources</li>
+        <li>Use automated tools, bots, or scripts to access the Service at excessive rates</li>
+        <li>Share account credentials with third parties outside your permitted team seats</li>
+      </ul>
+    </div>
+
+    <div class="policy-section" id="billing">
+      <h2><span class="sec-num">5</span>Subscription & Billing</h2>
+      <p>Swaz offers monthly and annual subscription plans. By subscribing, you authorize us to charge your payment method at the beginning of each billing cycle.</p>
+      <ul>
+        <li>Subscriptions renew automatically unless cancelled before the renewal date</li>
+        <li>We will notify you by email 3 days before any renewal charge</li>
+        <li>You may cancel at any time from your account dashboard</li>
+        <li>Pricing may change with 30 days notice to existing subscribers</li>
+        <li>All fees are exclusive of taxes unless stated otherwise</li>
+      </ul>
+    </div>
+
+    <div class="policy-section" id="payment">
+      <h2><span class="sec-num">6</span>Payment Processing — Lemon Squeezy</h2>
+      <div class="info-box">
+        <div class="info-box-icon">💳</div>
+        <p>All payments are processed by <strong>Lemon Squeezy</strong> — your payment details are never stored on our servers.</p>
+      </div>
+      <p>All payments for Swaz subscriptions are processed by <strong>Lemon Squeezy</strong> (lemonsqueezy.com), our authorized merchant of record. Lemon Squeezy handles all billing, tax collection, and payment processing on our behalf.</p>
+      <ul>
+        <li>Your payment details are securely handled by Lemon Squeezy and never stored on our servers</li>
+        <li>Charges on your bank or card statement will appear as "Lemon Squeezy"</li>
+        <li>Lemon Squeezy is responsible for collecting and remitting applicable sales taxes</li>
+        <li>By purchasing a Swaz subscription, you also agree to Lemon Squeezy's Terms of Service at <a href="https://www.lemonsqueezy.com/terms" target="_blank">lemonsqueezy.com/terms</a></li>
+      </ul>
+    </div>
+
+    <div class="policy-section" id="selfservice">
+      <h2><span class="sec-num">7</span>Nature of Service — Self-Service Platform</h2>
+      <p>Swaz is a fully self-service subscription platform. Access to all features is provided automatically upon subscribing — no manual onboarding, 1:1 sessions, or customised delivery is included unless explicitly stated in a specific plan.</p>
+      <p>We do not currently offer personalised consulting, custom-built products, or individual coaching as part of any standard subscription. Any such arrangement, if offered separately, would be governed by a separate agreement.</p>
+    </div>
+
+    <div class="policy-section" id="ip">
+      <h2><span class="sec-num">8</span>Intellectual Property</h2>
+      <p>All content, features, and functionality of Swaz — including but not limited to text, graphics, code, algorithms, and data — are owned by waqeeglobe.info and are protected by intellectual property laws.</p>
+      <p>You are granted a limited, non-exclusive, non-transferable license to use the Service for your own business purposes. You may not copy, modify, or distribute any part of the Service without our written consent.</p>
+    </div>
+
+    <div class="policy-section" id="disclaimer">
+      <h2><span class="sec-num">9</span>Disclaimer of Warranties</h2>
+      <p>Swaz is provided "as is" without warranties of any kind. We do not guarantee that niche data, revenue estimates, or competition scores will be accurate, complete, or suitable for any particular business decision.</p>
+      <p>All data provided by Swaz is for informational purposes only. You are solely responsible for any business decisions made based on information from the Service.</p>
+    </div>
+
+    <div class="policy-section" id="liability">
+      <h2><span class="sec-num">10</span>Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, waqeeglobe.info shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service, including but not limited to loss of profits, data, or business opportunities.</p>
+      <p>Our total liability to you for any claims arising from these Terms shall not exceed the amount you paid us in the 3 months preceding the claim.</p>
+    </div>
+
+    <div class="policy-section" id="termination">
+      <h2><span class="sec-num">11</span>Termination</h2>
+      <p>We reserve the right to suspend or terminate your account at any time if you violate these Terms of Service. You may also terminate your account at any time by cancelling your subscription and deleting your account from the dashboard.</p>
+      <p>Upon termination, your right to use the Service ceases immediately. Provisions that by their nature should survive termination will remain in effect.</p>
+    </div>
+
+    <div class="policy-section" id="law">
+      <h2><span class="sec-num">12</span>Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these Terms or your use of the Service shall be resolved through good-faith negotiation before pursuing formal legal action.</p>
+    </div>
+
+    <div class="contact-box">
+      <p>Questions about these terms? Our team is happy to clarify.</p>
+      <a href="mailto:waqee.globe@waqeeglobe.info">Contact Legal Team →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><div class="nav-dot"></div>SWAZ</div>
+        <p class="footer-tagline">Amazon & Walmart niche intelligence powered by AI.<br>Find winning products before the market does.</p>
+        <div class="footer-badge"><div class="footer-badge-dot"></div>waqeeglobe.info</div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a href="khan87.html">Niche Scanner</a>
+          <a href="features.html">Trend Forecasting</a>
+          <a href="features.html">Competition Score</a>
+          <a href="features.html">FBA Calculator</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a href="blog.html">Blog</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="refund.html">Refund Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 SWAZ · waqeeglobe.info. All rights reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="refund.html">Refund</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
