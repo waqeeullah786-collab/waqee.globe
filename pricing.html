@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWAZ — Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --accent:#2563EB;--accent-light:#3B82F6;--green:#16A34A;
+  --bg:#EEF4FC;--bg-hero:#F0F5FD;--white:#FFFFFF;--dark:#0F1724;
+  --muted:#6B7A99;--muted2:#A0AABF;--border:rgba(37,99,235,0.12);
+  --shadow-sm:0 2px 8px rgba(37,99,235,0.08);--shadow-md:0 4px 20px rgba(37,99,235,0.11);
+  --r:14px;--font:'DM Sans',sans-serif;--font-d:'Manrope',sans-serif;
+}
+body{background:var(--bg-hero);color:var(--dark);font-family:var(--font);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:66px;background:rgba(255,255,255,0.94);backdrop-filter:blur(24px);border-bottom:1px solid rgba(200,215,240,0.6);box-shadow:0 1px 0 rgba(37,99,235,0.05);}
+.nav-logo{font-family:var(--font-d);font-size:21px;font-weight:900;letter-spacing:-0.04em;color:var(--dark);display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nav-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,0.18);animation:dotPulse 2s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 3px rgba(37,99,235,0.18)}50%{box-shadow:0 0 0 5px rgba(37,99,235,0.08)}}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all 0.15s;}
+.nav-link:hover,.nav-link.active{color:var(--dark);background:rgba(37,99,235,0.05);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-live{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#16A34A;background:rgba(22,163,74,0.08);border:1px solid rgba(22,163,74,0.2);padding:6px 14px;border-radius:20px;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#16A34A;animation:blink 1.4s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.btn-login{font-size:14px;font-weight:500;color:var(--dark);background:none;border:1px solid rgba(15,23,36,0.18);padding:8px 20px;border-radius:9px;cursor:pointer;font-family:var(--font);transition:all 0.15s;text-decoration:none;display:inline-flex;align-items:center;}
+.btn-login:hover{border-color:rgba(15,23,36,0.32);background:rgba(15,23,36,0.03);}
+.btn-cta{font-size:14px;font-weight:700;color:#fff;background:var(--accent);border:none;padding:9px 22px;border-radius:9px;cursor:pointer;font-family:var(--font);transition:all 0.18s;text-decoration:none;display:inline-flex;align-items:center;gap:7px;box-shadow:0 2px 12px rgba(37,99,235,0.28);}
+.btn-cta:hover{background:#1d4ed8;transform:translateY(-1px);}
+.page-hero{padding:80px 40px 60px;text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(37,99,235,0.1) 1px,transparent 1px);background-size:28px 28px;opacity:0.35;pointer-events:none;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);color:var(--accent);font-size:12.5px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:22px;position:relative;z-index:1;}
+.page-title{font-family:var(--font-d);font-size:clamp(36px,5vw,60px);font-weight:900;line-height:1.06;letter-spacing:-0.03em;color:var(--dark);margin-bottom:20px;position:relative;z-index:1;}
+.page-title .blue{color:var(--accent);}
+.page-sub{font-size:17px;color:var(--muted);line-height:1.6;max-width:560px;margin:0 auto 40px;position:relative;z-index:1;}
+
+/* TOGGLE */
+.toggle-wrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:48px;}
+.toggle-label{font-size:14px;font-weight:600;color:var(--muted);}
+.toggle-label.active{color:var(--dark);}
+.toggle{width:46px;height:26px;background:#CBD5E1;border-radius:99px;position:relative;cursor:pointer;transition:background 0.2s;border:none;outline:none;}
+.toggle.on{background:var(--accent);}
+.toggle-thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:left 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.15);}
+.toggle.on .toggle-thumb{left:23px;}
+.save-badge{background:rgba(22,163,74,0.1);color:#16A34A;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;}
+
+/* PLANS GRID */
+.plans-wrap{max-width:1050px;margin:0 auto;padding:0 40px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;}
+.plan-card{background:#fff;border:1px solid rgba(200,218,245,0.8);border-radius:20px;padding:32px 28px;box-shadow:var(--shadow-sm);position:relative;transition:transform 0.18s,box-shadow 0.18s;}
+.plan-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.plan-card.featured{border:2px solid var(--accent);box-shadow:0 8px 32px rgba(37,99,235,0.18);}
+.plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;white-space:nowrap;letter-spacing:0.04em;}
+.plan-name{font-family:var(--font-d);font-size:22px;font-weight:900;color:var(--dark);margin-bottom:4px;}
+.plan-desc{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.plan-price{font-family:var(--font-d);font-size:48px;font-weight:900;color:var(--dark);line-height:1;margin-bottom:4px;}
+.plan-price span{font-size:18px;font-weight:500;color:var(--muted);}
+.plan-per{font-size:13px;color:var(--muted);margin-bottom:24px;}
+.plan-btn{display:block;width:100%;text-align:center;padding:12px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.18s;margin-bottom:24px;}
+.plan-btn-outline{border:1.5px solid rgba(37,99,235,0.3);color:var(--accent);background:transparent;}
+.plan-btn-outline:hover{background:rgba(37,99,235,0.05);}
+.plan-btn-fill{background:var(--accent);color:#fff;box-shadow:0 2px 12px rgba(37,99,235,0.28);}
+.plan-btn-fill:hover{background:#1d4ed8;}
+.plan-divider{height:1px;background:rgba(37,99,235,0.08);margin-bottom:20px;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.plan-features li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;color:var(--dark);}
+.plan-features li::before{content:'✓';flex-shrink:0;width:18px;height:18px;border-radius:50%;background:rgba(22,163,74,0.1);color:#16A34A;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.plan-features li.dim{color:var(--muted);}
+.plan-features li.dim::before{content:'—';background:rgba(107,122,153,0.08);color:var(--muted);}
+
+/* FAQ */
+.faq-wrap{max-width:720px;margin:0 auto;padding:0 40px 100px;}
+.faq-title{font-family:var(--font-d);font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.02em;color:var(--dark);text-align:center;margin-bottom:8px;}
+.faq-sub{font-size:15px;color:var(--muted);text-align:center;margin-bottom:40px;}
+.faq-item{border-bottom:1px solid rgba(37,99,235,0.08);padding:20px 0;cursor:pointer;}
+.faq-q{font-size:15px;font-weight:700;color:var(--dark);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-icon{font-size:18px;color:var(--accent);transition:transform 0.2s;flex-shrink:0;}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.7;margin-top:12px;display:none;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+
+footer{background:#fff;border-top:1px solid rgba(200,215,240,0.6);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;}
+.foot-logo{font-family:var(--font-d);font-size:18px;font-weight:900;letter-spacing:-0.04em;color:var(--dark);display:flex;align-items:center;gap:8px;text-decoration:none;}
+.foot-links{display:flex;gap:24px;}
+.foot-link{font-size:13px;color:var(--muted);text-decoration:none;transition:color 0.15s;}
+.foot-link:hover{color:var(--dark);}
+.foot-copy{font-size:12px;color:var(--muted2);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-dot"></div>SWAZ</a>
+  <div class="nav-links">
+    <a href="features.html" class="nav-link">Features</a>
+    <a href="pricing.html" class="nav-link active">Pricing</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="resources.html" class="nav-link">Resources</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-live"><div class="live-dot"></div>n8n Live</div>
+    <a href="index.html#pricing" class="btn-login">Subscribe</a>
+    <a href="index.html#pricing" class="btn-cta">Get started →</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="badge">💰 Pricing</div>
+  <h1 class="page-title">Simple, transparent<br><span class="blue">pricing for every seller</span></h1>
+  <p class="page-sub">Start free. Upgrade only when you're ready. No hidden fees, no surprises.</p>
+  <div class="toggle-wrap">
+    <span class="toggle-label active" id="lbl-monthly">Monthly</span>
+    <button class="toggle" id="billingToggle" onclick="toggleBilling()"><div class="toggle-thumb"></div></button>
+    <span class="toggle-label" id="lbl-yearly">Yearly <span class="save-badge">Save 20%</span></span>
+  </div>
+</div>
+
+<div class="plans-wrap">
+  <!-- Free -->
+  <div class="plan-card">
+    <div class="plan-name">Free</div>
+    <div class="plan-desc">Perfect for exploring SWAZ</div>
+    <div class="plan-price">$0<span></span></div>
+    <div class="plan-per">forever free</div>
+    <a href="index.html" class="plan-btn plan-btn-outline">Get started free</a>
+    <div class="plan-divider"></div>
+    <ul class="plan-features">
+      <li>7 searches per day</li>
+      <li>Amazon Scanner (basic)</li>
+      <li>Top 5 products per search</li>
+      <li>SWAZ competition score</li>
+      <li class="dim">Walmart Scanner</li>
+      <li class="dim">Trend Forecasting</li>
+      <li class="dim">FBA Calculator</li>
+      <li class="dim">CSV Export</li>
+    </ul>
+  </div>
+
+  <!-- Pro -->
+  <div class="plan-card featured">
+    <div class="plan-badge">⭐ Most Popular</div>
+    <div class="plan-name">Pro</div>
+    <div class="plan-desc">For serious Amazon & Walmart sellers</div>
+    <div class="plan-price" id="pro-price">$29<span>/mo</span></div>
+    <div class="plan-per" id="pro-per">billed monthly</div>
+    <a href="index.html#pricing" class="plan-btn plan-btn-fill">Start Pro Trial →</a>
+    <div class="plan-divider"></div>
+    <ul class="plan-features">
+      <li>Unlimited searches</li>
+      <li>Amazon & Walmart Scanner</li>
+      <li>Trend Forecasting Engine</li>
+      <li>FBA Profit Calculator</li>
+      <li>Advanced filters & sorting</li>
+      <li>CSV export</li>
+      <li>Email support</li>
+      <li>API access</li>
+    </ul>
+  </div>
+
+  <!-- Business -->
+  <div class="plan-card">
+    <div class="plan-name">Business</div>
+    <div class="plan-desc">For agencies & power sellers</div>
+    <div class="plan-price" id="biz-price">$79<span>/mo</span></div>
+    <div class="plan-per" id="biz-per">billed monthly</div>
+    <a href="mailto:support@swaz.app" class="plan-btn plan-btn-outline">Contact Sales</a>
+    <div class="plan-divider"></div>
+    <ul class="plan-features">
+      <li>Everything in Pro</li>
+      <li>5 team seats included</li>
+      <li>White-label reports</li>
+      <li>Priority support</li>
+      <li>Custom integrations</li>
+      <li>Dedicated account manager</li>
+      <li>SLA guarantee</li>
+    </ul>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-wrap">
+  <h2 class="faq-title">Frequently asked questions</h2>
+  <p class="faq-sub">Everything you need to know about SWAZ pricing.</p>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Can I cancel anytime? <span class="faq-icon">+</span></div>
+    <div class="faq-a">Yes. Cancel any time from your account settings — no questions asked, no cancellation fees.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Is there a free trial on paid plans? <span class="faq-icon">+</span></div>
+    <div class="faq-a">Our Free plan gives you 7 searches per day forever. Pro and Business plans include a 7-day free trial — no card required to start.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">What payment methods do you accept? <span class="faq-icon">+</span></div>
+    <div class="faq-a">We accept all major credit and debit cards via Stripe. Annual business plans can be paid by bank transfer — contact us for details.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Can I switch plans later? <span class="faq-icon">+</span></div>
+    <div class="faq-a">Absolutely. Upgrade or downgrade at any time. Prorated credits are applied automatically to your next bill.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Do you offer refunds? <span class="faq-icon">+</span></div>
+    <div class="faq-a">Yes — we offer a 7-day money-back guarantee on all paid plans. If you're not satisfied, email us and we'll refund you in full.</div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="foot-logo"><div class="nav-dot"></div>SWAZ</a>
+  <div class="foot-links">
+    <a href="features.html" class="foot-link">Features</a>
+    <a href="pricing.html" class="foot-link">Pricing</a>
+    <a href="blog.html" class="foot-link">Blog</a>
+    <a href="resources.html" class="foot-link">Resources</a>
+    <a href="privacy.html" class="foot-link">Privacy</a>
+    <a href="terms.html" class="foot-link">Terms</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;"><a href="mailto:waqee.glob@swaz.io" class="foot-link" style="display:flex;align-items:center;gap:6px;">📧 waqee.glob@swaz.io</a><a href="https://x.com/WaqiTehc" target="_blank" class="foot-link" style="display:flex;align-items:center;gap:6px;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    @WaqiTehc
+  </a></div>
+  <div class="foot-copy">© 2025 SWAZ. All rights reserved.</div>
+</footer>
+
+<script>
+function toggleBilling(){
+  const t=document.getElementById('billingToggle');
+  const on=t.classList.toggle('on');
+  document.getElementById('lbl-monthly').classList.toggle('active',!on);
+  document.getElementById('lbl-yearly').classList.toggle('active',on);
+  document.getElementById('pro-price').innerHTML=on?'$23<span>/mo</span>':'$29<span>/mo</span>';
+  document.getElementById('pro-per').textContent=on?'billed annually ($276/yr)':'billed monthly';
+  document.getElementById('biz-price').innerHTML=on?'$63<span>/mo</span>':'$79<span>/mo</span>';
+  document.getElementById('biz-per').textContent=on?'billed annually ($756/yr)':'billed monthly';
+}
+function toggleFaq(el){
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>

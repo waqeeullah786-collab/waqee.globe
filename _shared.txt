@@ -1,0 +1,15 @@
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-dot"></div>SWAZ</a>
+  <div class="nav-links">
+    <a href="features.html" class="nav-link">Features</a>
+    <a href="index.html#pricing" class="nav-link">Pricing</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="resources.html" class="nav-link">Resources</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-live"><div class="live-dot"></div>n8n Live</div>
+    <a href="index.html#pricing" class="btn-login">Subscribe</a>
+    <a href="index.html#pricing" class="btn-cta">Get started →</a>
+  </div>
+</nav>
